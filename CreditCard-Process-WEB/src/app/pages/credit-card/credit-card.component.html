@@ -1,0 +1,6 @@
+<mat-toolbar>
+	<button mat-button color="primary" (click)="setIsEdit()">Create</button>
+	<button mat-button color="accent" (click)="setIsList()">List</button>
+</mat-toolbar>
+<app-creditcard-list [hidden]="!isList" [setIsList]="isList"></app-creditcard-list>
+<app-creditcard-edit [hidden]="isList" [setIsEdit]="!isList"></app-creditcard-edit>

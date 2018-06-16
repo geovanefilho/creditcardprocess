@@ -1,0 +1,23 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput name="givenNameCard" [(ngModel)]="card.givenName" maxlength="50" placeholder="Name"
+    	required>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput type="number" name="cardNumber" [(ngModel)]="card.cardNumber" #input maxlength="19" placeholder="Card Number"
+    	required>
+    <mat-hint align="end">{{card.cardNumber?.length || 0}}/10</mat-hint>
+  </mat-form-field>
+  
+  <mat-form-field class="example-full-width">
+    <input matInput name="creditLimit" [(ngModel)]="card.creditLimit" required type="number"
+      		placeholder="Limit" class="example-right-align">
+    <span matPrefix>$&nbsp;</span>
+    <span matSuffix>.00</span>
+  </mat-form-field>
+  
+  <div *ngIf="mostrar">{{card.error}}</div>
+</form>
+
+<button mat-button color="primary" (click)="save($event)">Save</button>
